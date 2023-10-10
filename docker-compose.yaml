@@ -17,6 +17,7 @@ services:
       - DB_NAME=rest_api_db
       - DB_USER=postgres
       - DB_PASS=1234
+      - DB_PORT=5434
     depends_on:
       - db
 
@@ -28,6 +29,11 @@ services:
       - POSTGRES_DB=rest_api_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
+    expose:
+      - "5434"
+    ports:
+      - "5434:5434"
+    command:  -p 5434
 
 volumes:
   dev-db-data:
