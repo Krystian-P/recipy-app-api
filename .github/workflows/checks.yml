@@ -10,7 +10,7 @@ jobs:
       db:
         image: postgres:13-alpine
         ports:
-          - 5434:5432
+          - 5434:5434
         env:
           POSTGRES_DB: rest_api_db
           POSTGRES_USER: postgres
