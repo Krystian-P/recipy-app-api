@@ -3,7 +3,6 @@ Test for models.
 """
 import pytest
 from django.contrib.auth import get_user_model
-from django.test import TestCase
 
 
 @pytest.mark.django_db
