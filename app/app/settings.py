@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'rest_framework',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -77,11 +79,11 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        'HOST': os.environ.get('DB_HOST'),
-        "NAME": os.environ.get("DB_NAME"),
-        "USER":  os.environ.get("DB_USER"),
-        "PASSWORD":  os.environ.get("DB_PASS"),
-        "PORT":  os.environ.get("DB_PORT"),
+        'HOST': os.environ.get('DB_HOST') or "127.0.0.1",
+        "NAME": os.environ.get("DB_NAME") or "rest_api_db",
+        "USER":  os.environ.get("DB_USER") or "postgres",
+        "PASSWORD":  os.environ.get("DB_PASS") or "1234",
+        "PORT":  os.environ.get("DB_PORT") or "5434",
     }
 }
 
@@ -129,3 +131,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.User'
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
